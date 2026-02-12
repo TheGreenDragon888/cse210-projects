@@ -26,20 +26,20 @@ class Word
         }
         else
         {
-            string censored_text = "";
+            string censoredText = "";
             foreach (char letter in _text.ToCharArray())
             {
                 if (punctuation.Contains(letter)) // Contains punctuation? Keep it shown!
                 {
-                    censored_text = $"{censored_text}{letter}";
+                    censoredText = $"{censoredText}{letter}";
                 }
                 else
                 {  
-                    censored_text = $"{censored_text}_";
+                    censoredText = $"{censoredText}_";
                 }
 
             } // Creates underscores for each letter in word
-            return censored_text;
+            return censoredText;
         }
     }
 }

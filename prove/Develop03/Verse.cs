@@ -2,50 +2,34 @@ using System.Runtime.InteropServices;
 
 class Verse
 {
-    private ushort _verse_number; // Supports verse counting from 0 to 65,535
+    private ushort _verseNumber; // Supports verse counting from 0 to 65,535
     private List<Word> _content;
 
-    public Verse(string verse_content, ushort verse_number)
+    public Verse(string verseContent, ushort verseNumber)
     {
-        _verse_number = verse_number;
+        _verseNumber = verseNumber;
         _content = new List<Word>(); // Instantiates a new empty list
 
         // Seperate the text into seperate words in an array
-        string[] word_list = verse_content.Split(" ");
-        foreach (string word in word_list)
+        string[] wordList = verseContent.Split(" ");
+        foreach (string word in wordList)
         {
-            Word new_word = new Word(word); //Creates new word word
-            _content.Add(new_word); // Adds word word to word word
+            Word newWord = new Word(word); //Creates new word word
+            _content.Add(newWord); // Adds word word to word word
         }
     }
 
-    public string GetVerse()
+    private float EvaluatePercentHiddenWords()
     {
-        // Displays the verse number and then iterates through the words to display them all
-        string verse_to_return = $"{_verse_number}";
-        foreach (Word word in _content)
-        {
-            verse_to_return = $"{verse_to_return} {word.GetText()}";
-        }
-        return verse_to_return;
-    }
-
-    public float EvaluatePercentHiddenWords()
-    {
-        uint visible_word_count = 0;
+        uint visibleWordCount = 0;
         foreach (Word word in _content)
         {
             if (word.IsVisible())
             {
-                visible_word_count++;
+                visibleWordCount++;
             }
         }
-        return 1 - (float)visible_word_count / (float)_content.Count;
-    }
-
-    private bool AreApproximatelyEqual(float a, float b, float tolerance = 0.001f)
-    {
-        return Math.Abs(a - b) < tolerance;
+        return 1 - (float)visibleWordCount / (float)_content.Count;
     }
 
     public void HideWordPercentage(float percentage)
@@ -58,14 +42,25 @@ class Verse
 
         Random random = new Random(83460); // Seed 83460 which is the BYUI zip code
 
-        float evaluated_hidden_percentage = 0f;
-        while (evaluated_hidden_percentage < percentage)
+        float evaluatedHiddenPercentage = 0f;
+        while (evaluatedHiddenPercentage < percentage)
         {
             // Hide words until hidden word percentage is greater than desired percentage
             _content[random.Next(_content.Count)].SetVisibility(false); // Hide a random word
-            evaluated_hidden_percentage = EvaluatePercentHiddenWords();
+            evaluatedHiddenPercentage = EvaluatePercentHiddenWords();
 
-            // Console.WriteLine($"eval: {evaluated_hidden_percentage}, %: {percentage}");
+            // Console.WriteLine($"eval: {evaluatedHiddenPercentage}, %: {percentage}");
         }
+    }
+
+    public string GetVerse()
+    {
+        // Displays the verse number and then iterates through the words to display them all
+        string verseToReturn = $"{_verseNumber}";
+        foreach (Word word in _content)
+        {
+            verseToReturn = $"{verseToReturn} {word.GetText()}";
+        }
+        return verseToReturn;
     }
 }
