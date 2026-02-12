@@ -1,0 +1,10 @@
+dotnet new console -o PROJECT_NAME --use-program-main
+//  new console makes a new project
+//  -o is the output and then you specify the name
+//  --use-program-main was not explained to us
+
+dotnet build
+//  builds the dotnet or csharp project
+
+dotnet run
+//  runs the dotnet or csharp program
