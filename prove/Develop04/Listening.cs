@@ -33,7 +33,7 @@ class ListingActivity : Activity
         }
 
         Console.WriteLine();
-        Console.WriteLine($"You have listed {_itemCount} items!");
+        Console.WriteLine($"You have listed {_itemCount} item{(_itemCount == 1 ? "" : "s")}!");
         Wait.WaitingUI(5);
     }
 }

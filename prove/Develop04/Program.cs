@@ -14,7 +14,7 @@ class Program
             Console.WriteLine("Select an activity:");
             Console.WriteLine("1. Breathing Activity");
             Console.WriteLine("2. Reflection Activity");
-            Console.WriteLine("3. Reflection Activity");
+            Console.WriteLine("3. Listing Activity");
             Console.WriteLine("4. Exit");
             userInput = Console.ReadLine();
 
@@ -48,13 +48,14 @@ class Program
 
                 activityCount++;
             }
-            else
-            {
-                Console.WriteLine("Listen bucko. Nobody thinks you're funny just cause you can't type a number.");
-                System.Threading.Thread.Sleep(600);
-                Console.WriteLine("okay nevermind I kinda do");
-                System.Threading.Thread.Sleep(150);
-            }
+            
+            // Was tryna be silly here 
+            // {
+            //     Console.WriteLine("Listen bucko. Nobody thinks you're funny just cause you can't type a number.");
+            //     System.Threading.Thread.Sleep(600);
+            //     Console.WriteLine("okay nevermind I kinda do");
+            //     System.Threading.Thread.Sleep(150);
+            // }
         }
 
         Console.WriteLine();
