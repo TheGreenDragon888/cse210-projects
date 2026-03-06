@@ -2,7 +2,7 @@ using System.Reflection.Metadata;
 
 class ListingActivity : Activity
 {
-    public ListingActivity() : base("Listing", "You're gonna start listin' today.") {}
+    public ListingActivity() : base("Listing", "In this activity you will list out a bunch of responses to a provided prompt.") {}
 
     string[] _prompts = [
         "Who are people that you appreciate?",

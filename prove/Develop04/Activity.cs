@@ -14,6 +14,8 @@ abstract class Activity
 
     public virtual void DisplayIntroduction()
     {
+        Console.Clear();
+
         Console.WriteLine($"Welcome to the {_name} Activity!");
         Console.WriteLine(); // Spacer
         Console.WriteLine(_introduction);

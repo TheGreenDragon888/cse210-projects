@@ -1,6 +1,6 @@
 class ReflectionActivity: Activity
 {
-    public ReflectionActivity() : base("Reflection", "You're gonna start reflectin' today.") {}
+    public ReflectionActivity() : base("Reflection", "In this activity you will be provided a prompt and then time to reflect on provided questions related to that prompt..") {}
 
     string[] _prompts = [
         "Think of a time when you stood up for someone else.",
