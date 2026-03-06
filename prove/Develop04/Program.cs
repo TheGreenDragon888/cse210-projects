@@ -61,7 +61,7 @@ class Program
         Console.WriteLine();
         // Make sure I'm being gramatically correct based on the number of activites
         Console.WriteLine($"You performed {activityCount} activit{(activityCount == 1 ? "y" : "ies")} this session!");
-        Wait.WaitingUI(1);
+        Wait.WaitingUI(3);
 
         Console.WriteLine();
         Console.WriteLine("See you later!");
