@@ -19,7 +19,9 @@ class ChecklistGoal : Goal
 
     public override void CreateGoal()
     {
-        base.CreateGoal();
+        base.AskGoalFundamentals(); // Use the base class's "AskGoalFundamentals"
+
+        // Then we ask the remaining questions for the checklist goal
         Console.Write("How many times does this goal need to be completed? ");
         int.TryParse(Console.ReadLine(), out int times);
         TimesToComplete = times;
@@ -27,6 +29,7 @@ class ChecklistGoal : Goal
 
     public override void Complete()
     {
+        // Limited completion times
         if (TimesToComplete <= 0) return;
 
         TimesCompleted++; 

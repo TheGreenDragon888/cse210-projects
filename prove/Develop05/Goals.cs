@@ -4,18 +4,13 @@ using System.Collections.Generic;
 
 class Goals
 {
-    private string _goalsDirectory = "GoalsData";
-
     public List<Goal> goalList;
+
+    private string filePath = "Goals.txt";
 
     public Goals()
     {
         goalList = new List<Goal>();
-
-        if (!Directory.Exists(_goalsDirectory))
-        {
-            Directory.CreateDirectory(_goalsDirectory);
-        }
 
         LoadGoalsFromFile();
     }
@@ -26,12 +21,11 @@ class Goals
         SaveGoalsToFile();
     }
 
+    // Claude AI assisted me on how to quickly read and write files with Stream Writer & Reader
     private void SaveGoalsToFile()
     {
-        string filePath = Path.Combine(_goalsDirectory, "goals.txt");
-
-        using var writer = new StreamWriter(filePath);
-        foreach (var goal in goalList)
+        StreamWriter writer = new StreamWriter(filePath);
+        foreach (Goal goal in goalList)
         {
             writer.WriteLine(SerializeGoal(goal));
         }
@@ -39,21 +33,21 @@ class Goals
 
     private void LoadGoalsFromFile()
     {
-        string filePath = Path.Combine(_goalsDirectory, "goals.txt");
-
         if (!File.Exists(filePath))
             return;
 
-        using var reader = new StreamReader(filePath);
+        StreamReader reader = new StreamReader(filePath);
         string line;
+        // Iterate through each line within the save file
         while ((line = reader.ReadLine()) != null)
         {
-            var goal = DeserializeGoal(line);
+            Goal goal = DeserializeGoal(line);
             if (goal != null)
                 goalList.Add(goal);
         }
     }
 
+    // Claude AI advised me on how to serialize the goal data for the save file
     private string SerializeGoal(Goal goal)
     {
         return goal.GetType().Name + "|" + goal.SerializeData();
@@ -61,7 +55,7 @@ class Goals
 
     private Goal DeserializeGoal(string line)
     {
-        var parts = line.Split('|');
+        string[] parts = line.Split('|');
         if (parts.Length < 6)
             return null;
 

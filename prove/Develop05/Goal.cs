@@ -40,6 +40,7 @@ class Goal
 
     public virtual void AskGoalFundamentals()
     {
+        // Template for goal creation
         Console.Write("What is the name of your goal? ");
         Name = Console.ReadLine() ?? string.Empty;
 
