@@ -2,7 +2,7 @@ using System;
 
 /*
 My final project is a economy simulator.
-It currently has all the classes and most of the mathods.
+It currently has all the classes and most of the methods.
 The base class structure is all here, but the more
 nuance of calculating prices for trade among large quantities
 of agents is still to be decided.
