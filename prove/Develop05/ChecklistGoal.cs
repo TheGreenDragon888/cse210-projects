@@ -1,7 +1,7 @@
 class ChecklistGoal : Goal
 {
-    public int TimesToComplete { get; set; }
-    public int TimesCompleted { get; set; }
+    public int TimesToComplete;
+    public int TimesCompleted;
 
     public ChecklistGoal() : base()
     {

@@ -1,9 +1,9 @@
 class Goal
 {
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public int Points { get; set; }
-    public bool IsComplete { get; set; }
+    public string Name;
+    public string Description;
+    public int Points;
+    public bool IsComplete;
 
     public Goal()
     {
