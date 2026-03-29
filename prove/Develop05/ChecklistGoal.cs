@@ -3,12 +3,14 @@ class ChecklistGoal : Goal
     public int TimesToComplete;
     public int TimesCompleted;
 
+    // Creates an empty goal class to be initialized with the CreateGoal function
     public ChecklistGoal() : base()
     {
         TimesToComplete = 0;
         TimesCompleted = 0;
     }
 
+    // Initializes the goal using information loaded from file
     public ChecklistGoal(string name, string description, int points, int timesToComplete, int timesCompleted = 0)
         : base(name, description, points)
     {
