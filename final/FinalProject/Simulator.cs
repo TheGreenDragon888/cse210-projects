@@ -3,17 +3,17 @@ public class Simulator
     public void RunSimulation()
     {
         // Creates simulation data storage
-        var data = new SimulationData();
+        SimulationData data = new SimulationData();
 
         // Initialize items (there will be more added for the full project)
-        var apple = new Item("Apple", 1.0);
-        var book = new Item("Book", 10.0);
+        Item apple = new Item("Apple", 1.0);
+        Item book = new Item("Book", 10.0);
         data.Items.Add(apple);
         data.Items.Add(book);
 
         // Initialize Agents (there will be more added for the full project)
-        var alice = new Agent("Alice", 50.0);
-        var bob = new Agent("Bob", 20.0);
+        Agent alice = new Agent("Alice", 50.0);
+        Agent bob = new Agent("Bob", 20.0);
         bob.Inventory.Add(apple);
         bob.Inventory.Add(book);
         data.Agents.Add(alice);
@@ -32,7 +32,7 @@ public class Simulator
 
     private void ExecuteTrade(SimulationData data, Market market, Agent buyer, Agent seller, Item item)
     {
-        var price = market.DeterminePrice(item);
+        double price = market.DeterminePrice(item);
 
         if (buyer.Money < price)
         {
@@ -55,7 +55,7 @@ public class Simulator
         Console.WriteLine($"Transactions: {data.Transactions.Count}");
         Console.WriteLine();
 
-        foreach (var t in data.Transactions)
+        foreach (TransactionData t in data.Transactions)
         {
             Console.WriteLine($"[{t.Timestamp:HH:mm:ss}] {t.Buyer.Name} bought {t.Item.Name} from {t.Seller.Name} for {t.Price:C}");
         }

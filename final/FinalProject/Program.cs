@@ -18,7 +18,7 @@ class Program
     static void Main(string[] args)
     {
         // Demo for final projecyS
-        var simulator = new Simulator();
+        Simulator simulator = new Simulator();
         simulator.RunSimulation();
     }
 }
