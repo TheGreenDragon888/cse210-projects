@@ -1,11 +1,11 @@
-public class Item
+class Item
 {
-    public string Name;
-    public double BasePrice;
+    public string _name { get; }
+    public int _quantity { get; set; }
 
-    public Item(string name, double basePrice)
+    public Item(string name, int quantity)
     {
-        Name = name;
-        BasePrice = basePrice;
+        _name = name;
+        _quantity = quantity;
     }
 }
