@@ -14,6 +14,8 @@ base price floor of $1 within the simulation.
 
 Feel free to experiment with my project!
 
+- Isaac Day
+
 Disclaimer:
 This project was assisted by AI. Mostly with accelerating development
 by helping me write the user interface. The base class system, and

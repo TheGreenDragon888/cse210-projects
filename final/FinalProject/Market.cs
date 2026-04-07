@@ -41,7 +41,7 @@ class Market
             int demand = totalDemand[assetID];
             float scarcity = supply == 0 ? demand : (float)demand / supply;
             assetPrice[assetID] = Math.Max(1f, 1f + demand * 0.5f + scarcity * 0.75f);
-            Console.WriteLine($"{_assetNames[assetID]}: ${assetPrice[assetID]:0.00} (Supply: {supply}, Demand: {demand})");
+            Console.WriteLine($"{_assetNames[assetID]}: ${assetPrice[assetID]:F2} (Supply: {supply}, Demand: {demand})");
         }
 
         // Set initial inventory equal to planned production
@@ -92,7 +92,7 @@ class Market
                 int purchased = originalNeed - remainingNeed;
                 if (purchased > 0)
                 {
-                    Console.WriteLine($"{buyer._name} bought {purchased} {_assetNames[assetID]} for ${((float)purchased * price):0.00}.");
+                    Console.WriteLine($"{buyer._name} bought {purchased} {_assetNames[assetID]} for ${((float)purchased * price):F2}.");
                 }
             }
         }
@@ -101,7 +101,7 @@ class Market
         for (int i = 0; i < _industries.Length; i++)
         {
             Industry industry = _industries[i];
-            Console.Write($"{industry._name}: ${industry._money:0.00}, Assets: ");
+            Console.Write($"{industry._name}: ${industry._money:F2}, Assets: ");
             for (int assetID = 0; assetID < assetCount; assetID++)
             {
                 Console.Write($"{_assetNames[assetID]}({industry._assets[assetID]._quantity}) ");
